@@ -41,7 +41,7 @@ namespace FacebookLogin.iOS
             }
             else
             {
-                var request = new GraphRequest(@"me", new NSDictionary(@"fields"));
+                var request = new GraphRequest(@"me", null);
                 request.Start(GetDetailsRequestHandler);
             }
         }
@@ -62,7 +62,7 @@ namespace FacebookLogin.iOS
                 var userProfile = new UserProfile(
                     Profile.CurrentProfile.FirstName,
                     Profile.CurrentProfile.LastName,
-                    Profile.CurrentProfile.ImageUrl(ProfilePictureMode.Square, new CGSize()).ToString()
+                    Profile.CurrentProfile.ImageUrl(ProfilePictureMode.Square, new CGSize(200, 200)).ToString()
                 );
 
                 _completionSource.TrySetResult(new LoginResult(LoginState.Success, userProfile));
@@ -73,9 +73,7 @@ namespace FacebookLogin.iOS
         {
             var viewController = UIApplication.SharedApplication.KeyWindow.RootViewController;
             while (viewController.PresentedViewController != null)
-            {
                 viewController = viewController.PresentedViewController;
-            }
 
             return viewController;
         }

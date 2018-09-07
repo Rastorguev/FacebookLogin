@@ -24,9 +24,9 @@
     <key>MinimumOSVersion</key>
     <string>8.0</string>
     <key>CFBundleDisplayName</key>
-    <string>FacebookLogin</string>
+    <string>Facebook Login</string>
     <key>CFBundleIdentifier</key>
-    <string>com.companyname.FacebookLogin</string>
+    <string>com.ar.facebooklogin</string>
     <key>CFBundleVersion</key>
     <string>1.0</string>
     <key>UILaunchStoryboardName</key>
@@ -47,6 +47,6 @@
     <key>FacebookAppID</key>
     <string>316755095752438</string>
     <key>FacebookDisplayName</key>
-    <string>Login</string>
+    <string>Facebook Login</string>
   </dict>
 </plist>
