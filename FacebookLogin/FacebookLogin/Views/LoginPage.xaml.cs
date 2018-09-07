@@ -38,7 +38,7 @@ namespace FacebookLogin.Views
 
         private void ShowError(string errorMessage)
         {
-            DisplayAlert("Error", errorMessage, "Ok");
+            DisplayAlert("Error", errorMessage, "OK");
         }
     }
 }

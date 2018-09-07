@@ -1,15 +1,14 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using FacebookLogin.Droid;
+using Java.Lang;
 using Org.Json;
 using Xamarin.Facebook;
 using Xamarin.Facebook.Login;
 using Xamarin.Forms;
-using Object = Java.Lang.Object;
 
 [assembly: Dependency(typeof(FacebookService))]
 
@@ -22,7 +21,7 @@ namespace FacebookLogin.Droid
             DependencyService.Get<IFacebookService>() as FacebookService;
 
         private readonly ICallbackManager _callbackManager = CallbackManagerFactory.Create();
-        private readonly string[] _permissions = {@"public_profile", @"email"};
+        private readonly string[] _permissions = {@"public_profile"};
 
         private LoginResult _loginResult;
         private TaskCompletionSource<LoginResult> _completionSource;
@@ -61,13 +60,10 @@ namespace FacebookLogin.Droid
                 var profile = new UserProfile(
                     Profile.CurrentProfile.FirstName,
                     Profile.CurrentProfile.LastName,
-                    response.JSONObject.Has("email") ? response.JSONObject.GetString("email") : string.Empty,
                     response.JSONObject.GetJSONObject("picture")?.GetJSONObject("data")?.GetString("url")
                 );
 
-                _loginResult = new LoginResult(
-                    LoginState.Success, profile
-                );
+                _loginResult = new LoginResult(LoginState.Success, profile);
             }
 
             _completionSource?.TrySetResult(_loginResult);
@@ -92,7 +88,7 @@ namespace FacebookLogin.Droid
             }
 
             var parameters = new Bundle();
-            parameters.PutString("fields", "id,email,picture.type(large)");
+            parameters.PutString("fields", "picture.type(large)");
             var request = GraphRequest.NewMeRequest(facebookLoginResult.AccessToken, this);
             request.Parameters = parameters;
             request.ExecuteAsync();
