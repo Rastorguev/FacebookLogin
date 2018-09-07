@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FacebookLogin"
+    x:Class="FacebookLogin.Views.LoginPage">
+
+    <Button
+        x:Name="LoginButton"
+        Margin="20"
+        Text="Login"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Center"
+        TextColor="White"
+        BackgroundColor="#3b5998"
+        Clicked="OnLoginButtonClicked" />
+</ContentPage>
