@@ -88,7 +88,7 @@ namespace FacebookLogin.Droid
             }
 
             var parameters = new Bundle();
-            parameters.PutString("fields", "picture.type(large)");
+            parameters.PutString("fields", "picture.width(200).height(200)");
             var request = GraphRequest.NewMeRequest(facebookLoginResult.AccessToken, this);
             request.Parameters = parameters;
             request.ExecuteAsync();
