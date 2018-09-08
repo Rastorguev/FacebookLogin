@@ -2,7 +2,6 @@
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
-using Xamarin.Facebook;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -26,7 +25,7 @@ namespace FacebookLogin.Droid
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
-            FacebookService.Instance.OnActivityResult(requestCode, (int)resultCode, data);
+            FacebookService.Instance.OnActivityResult(requestCode, (int) resultCode, data);
         }
     }
 }

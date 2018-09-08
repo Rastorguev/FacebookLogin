@@ -73,7 +73,9 @@ namespace FacebookLogin.iOS
         {
             var viewController = UIApplication.SharedApplication.KeyWindow.RootViewController;
             while (viewController.PresentedViewController != null)
+            {
                 viewController = viewController.PresentedViewController;
+            }
 
             return viewController;
         }

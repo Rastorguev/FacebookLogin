@@ -3,6 +3,7 @@ using Xamarin.Forms;
 
 namespace FacebookLogin.Views
 {
+    //There is no need to use MVVM and bindings for such simple app.
     public partial class LoginPage
     {
         private readonly string UnknownErrorMessage = "Oops)";
@@ -11,11 +12,13 @@ namespace FacebookLogin.Views
         {
             InitializeComponent();
 
+            //There is no need to introduce localization approach
             Title = "Login";
         }
 
         private async void OnLoginButtonClicked(object sender, EventArgs e)
         {
+            //Service locator instead of dependency injection to simplify code
             var facebookService = DependencyService.Get<IFacebookService>();
 
             try
